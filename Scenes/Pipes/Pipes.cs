@@ -18,6 +18,18 @@ public partial class Pipes : Node2D
         _upperPipe.BodyEntered += OnBodyEntered;
 
         _layser.BodyEntered += OnLayserBodyEntered;
+
+        SignalManager.Instance.OnPlaneDied += OnPlaneDied;
+    }
+
+    public override void _ExitTree()
+    {
+        SignalManager.Instance.OnPlaneDied -= OnPlaneDied;
+    }
+
+    private void OnPlaneDied()
+    {
+        SetProcess(false);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +40,7 @@ public partial class Pipes : Node2D
 
     private void OnLayserBodyEntered(Node2D body)
     {
-        GD.Print("Layser entered");
+        ScoreManager.IncrementScore();
     }
 
     private void OnScreenExited()

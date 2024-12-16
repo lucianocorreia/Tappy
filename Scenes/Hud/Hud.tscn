@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj7on70qo068w"]
+
+[ext_resource type="Script" path="res://Scenes/Hud/Hud.cs" id="1_6bejt"]
+[ext_resource type="LabelSettings" uid="uid://6sct6huniesq" path="res://Resources/LG_48_Red.tres" id="1_r6chh"]
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("_scoreLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bejt")
+_scoreLabel = NodePath("MC/ScoreLabel")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+
+[node name="ScoreLabel" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "000"
+label_settings = ExtResource("1_r6chh")

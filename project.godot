@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Tappy"
+run/main_scene="res://Scenes/Main/Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Globals/GameManager.cs"
+SignalManager="*res://Globals/SignalManager.cs"
+ScoreManager="*res://Globals/ScoreManager.cs"
 
 [display]
 
