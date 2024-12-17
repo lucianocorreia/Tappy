@@ -8,6 +8,7 @@ public partial class GameManager : Node
     private PackedScene _mainScene = GD.Load<PackedScene>("res://Scenes/Main/Main.tscn");
     private PackedScene _gameScene = GD.Load<PackedScene>("res://Scenes/Game/Game.tscn");
     private PackedScene _simpleTransitionScene = GD.Load<PackedScene>("res://Scenes/SimpleTransition/SimpleTransition.tscn");
+    private PackedScene _complexTransitionScene = GD.Load<PackedScene>("res://Scenes/ComplexTransition/ComplexTransition.tscn");
 
     private PackedScene _nextScene;
 
@@ -26,7 +27,13 @@ public partial class GameManager : Node
     private void LoadNextScene(PackedScene scene)
     {
         _nextScene = scene;
-        Instance.GetTree().ChangeSceneToPacked(Instance._simpleTransitionScene);
+
+        // Old code using simple transition
+        // Instance.GetTree().ChangeSceneToPacked(Instance._simpleTransitionScene);
+
+        // Using complex transition
+        CanvasLayer cvl = _complexTransitionScene.Instantiate<CanvasLayer>(); 
+        AddChild(cvl);
     }
 
     public static void LoadMain()
