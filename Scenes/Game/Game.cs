@@ -9,7 +9,7 @@ public partial class Game : Node2D
     [Export] private Timer _spawnTimer;
     [Export] private PackedScene _pipesScene;
 
-    private bool _gameOver = false;
+    // private bool _gameOver = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -30,10 +30,10 @@ public partial class Game : Node2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("fly") && _gameOver)
-        {
-            ChangeToMain();
-        }
+        // if (Input.IsActionJustPressed("fly") && _gameOver)
+        // {
+        //     ChangeToMain();
+        // }
 
         if (Input.IsKeyPressed(Key.Q))
         {
@@ -63,9 +63,9 @@ public partial class Game : Node2D
 
     private void OnPlaneDied()
     {
-        GD.Print("Game Over");
+        // GD.Print("Game Over");
         StopPipes();
-        _gameOver = true;
+        // _gameOver = true;
     }
 
     public float GetSpawnY()
