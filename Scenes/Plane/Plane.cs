@@ -8,6 +8,7 @@ public partial class Plane : CharacterBody2D
 
     [Export] private AnimationPlayer _animationPlayer;
     [Export] private AnimatedSprite2D _planeSprite;
+    [Export] private AudioStreamPlayer _engine;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -39,6 +40,7 @@ public partial class Plane : CharacterBody2D
     {
         SetPhysicsProcess(false);
         _planeSprite.Stop();
+        _engine.Stop();
         // EmitSignal(SignalName.OnPlaneDied);
         SignalManager.EmitOnPlaneDied();
     }

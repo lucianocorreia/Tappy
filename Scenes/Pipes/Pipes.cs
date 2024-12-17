@@ -9,6 +9,7 @@ public partial class Pipes : Node2D
     [Export] private Area2D _upperPipe;
     [Export] private Area2D _lowerPipe;
     [Export] private Area2D _layser;
+    [Export] private AudioStreamPlayer2D _scoreSound;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -40,6 +41,7 @@ public partial class Pipes : Node2D
 
     private void OnLayserBodyEntered(Node2D body)
     {
+        _scoreSound.Play();
         ScoreManager.IncrementScore();
     }
 
