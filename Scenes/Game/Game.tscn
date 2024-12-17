@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by4odg3sjgghu"]
+[gd_scene load_steps=9 format=3 uid="uid://by4odg3sjgghu"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Game.cs" id="1_ebfi4"]
 [ext_resource type="Texture2D" uid="uid://lxmmfgdmqdmf" path="res://assets/background/rocks_2.png" id="1_yc3vi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cj7on70qo068w" path="res://Scenes/Hud/Hud.tscn" id="3_aosi4"]
 [ext_resource type="PackedScene" uid="uid://dwyjamgbivdw4" path="res://Scenes/Pipes/Pipes.tscn" id="4_cajs4"]
 [ext_resource type="PackedScene" uid="uid://bn4mk5qj0dyg1" path="res://Scenes/GameOver/GameOver.tscn" id="4_eumg4"]
+[ext_resource type="PackedScene" uid="uid://50mtja23pw32" path="res://Scenes/ParallaxBg/ParallaxBg.tscn" id="8_maiub"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer")]
 script = ExtResource("1_ebfi4")
@@ -14,6 +15,8 @@ _spawnUpper = NodePath("SpawnUpper")
 _spawnLower = NodePath("SpawnLower")
 _spawnTimer = NodePath("SpawnTimer")
 _pipesScene = ExtResource("4_cajs4")
+
+[node name="ParallaxBg" parent="." instance=ExtResource("8_maiub")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -23,6 +26,7 @@ _pipesScene = ExtResource("4_cajs4")
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(532, 372)
 texture = ExtResource("1_yc3vi")
 
